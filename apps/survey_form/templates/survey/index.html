@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Survey Form</h1>
+  {% if error %}
+  <p style="color: red">*{{error}}</p>
+  {% endif %}
+  <form action="{% url 'add' %}" method="POST" name="myForm">
+    {% csrf_token %}
+    Your Name: <input type="text" name="name" value="">
+
+    <br>
+    <label for="">Locations:</label>
+    <select name="location" id="location" value="">
+      <option value="San Jose">San Jose</option>
+      <option value="LA">LA</option>
+      <option value="DC">DC</option>
+    </select>
+
+    <br>
+    <label for="">Favorite Language:</label>
+    <select name="language" id="language" value="">
+      <option value="Python">Python</option>
+      <option value="Swift">Swift</option>
+      <option value="JavaScript">JavaScript</option>
+    </select>
+
+    <br>
+    <br>
+    Comment:
+    <textarea name="comment" id="comment" cols="30" rows="3"></textarea>
+    <br>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+</body>
+</html>
